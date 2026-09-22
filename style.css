@@ -1,0 +1,500 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #05091c;
+}
+
+/* =========================
+   CIELO
+========================= */
+
+.sky {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #18245c 0%,
+            #0b1238 35%,
+            #05091c 75%,
+            #02030d 100%
+        );
+}
+
+/* =========================
+   LUNA
+========================= */
+
+.moon {
+    position: absolute;
+    top: 9%;
+    right: 12%;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #fff8d6;
+
+    box-shadow:
+        0 0 20px #fff6b0,
+        0 0 50px rgba(255, 245, 160, 0.35);
+
+    animation: moonGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+    from {
+        box-shadow:
+            0 0 20px #fff6b0,
+            0 0 40px rgba(255, 245, 160, 0.25);
+    }
+
+    to {
+        box-shadow:
+            0 0 30px #fff6b0,
+            0 0 70px rgba(255, 245, 160, 0.45);
+    }
+}
+
+/* =========================
+   ESTRELLAS
+========================= */
+
+.stars::before,
+.stars::after {
+    content: "";
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    background: white;
+    border-radius: 50%;
+
+    box-shadow:
+        8vw 12vh white,
+        17vw 25vh white,
+        25vw 10vh white,
+        33vw 18vh white,
+        42vw 8vh white,
+        50vw 28vh white,
+        58vw 13vh white,
+        66vw 22vh white,
+        75vw 8vh white,
+        83vw 27vh white,
+        91vw 15vh white,
+        12vw 42vh white,
+        29vw 37vh white,
+        47vw 43vh white,
+        71vw 38vh white,
+        88vw 45vh white;
+
+    animation: twinkle 3s infinite alternate;
+}
+
+.stars::after {
+    transform: scale(0.6);
+    animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.25;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   MENSAJE
+========================= */
+
+.message {
+    position: absolute;
+
+    top: 23%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    color: white;
+
+    opacity: 0;
+
+    z-index: 20;
+
+    animation: showMessage 2.5s ease forwards;
+    animation-delay: 7s;
+}
+
+.message h1 {
+    font-size: clamp(2.2rem, 6vw, 5rem);
+
+    font-weight: normal;
+
+    color: #ffe66d;
+
+    text-shadow:
+        0 0 10px rgba(255, 230, 109, 0.7),
+        0 0 30px rgba(255, 205, 50, 0.5),
+        0 0 60px rgba(255, 200, 0, 0.3);
+}
+
+.message p {
+    margin-top: 15px;
+
+    font-size: clamp(1rem, 2vw, 1.5rem);
+
+    color: #fff9d6;
+
+    opacity: 0.9;
+}
+
+@keyframes showMessage {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* =========================
+   JARDÍN
+========================= */
+
+.garden {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 55%;
+
+    z-index: 10;
+}
+
+.ground {
+    position: absolute;
+
+    bottom: -10px;
+    left: -5%;
+
+    width: 110%;
+    height: 22%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #102b1d 0%,
+            #071b13 55%,
+            #030b08 100%
+        );
+
+    border-radius: 50% 50% 0 0;
+}
+
+/* =========================
+   FLORES
+========================= */
+
+.flower {
+    position: absolute;
+
+    bottom: 10%;
+
+    width: 100px;
+    height: 330px;
+
+    transform-origin: bottom center;
+
+    animation:
+        growFlower 2.5s cubic-bezier(.2,.8,.2,1) forwards,
+        sway 5s ease-in-out infinite 2.5s;
+
+    opacity: 0;
+}
+
+.flower1 {
+    left: 8%;
+    height: 300px;
+    animation-delay: 0.5s, 3s;
+}
+
+.flower2 {
+    left: 23%;
+    height: 380px;
+    animation-delay: 1s, 3.5s;
+}
+
+.flower3 {
+    left: 40%;
+    height: 330px;
+    animation-delay: 1.5s, 4s;
+}
+
+.flower4 {
+    right: 28%;
+    height: 390px;
+    animation-delay: 0.8s, 3.3s;
+}
+
+.flower5 {
+    right: 13%;
+    height: 310px;
+    animation-delay: 1.2s, 3.7s;
+}
+
+.flower6 {
+    right: 3%;
+    height: 270px;
+    animation-delay: 1.8s, 4.2s;
+}
+
+/* =========================
+   TALLO
+========================= */
+
+.stem {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 7px;
+    height: 75%;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        to right,
+        #0a4d25,
+        #1c873e,
+        #0b5227
+    );
+}
+
+/* =========================
+   HOJAS
+========================= */
+
+.leaf {
+    position: absolute;
+
+    width: 55px;
+    height: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #1f8f43,
+        #075522
+    );
+
+    border-radius: 100% 0 100% 0;
+}
+
+.leaf-left {
+    left: 10px;
+    bottom: 42%;
+
+    transform: rotate(-30deg);
+}
+
+.leaf-right {
+    right: 10px;
+    bottom: 30%;
+
+    transform: rotate(150deg);
+}
+
+/* =========================
+   CABEZA DE LA FLOR
+========================= */
+
+.flower-head {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 110px;
+    height: 110px;
+
+    transform: translateX(-50%);
+
+    animation: bloom 1.8s ease forwards;
+    animation-delay: 2s;
+
+    opacity: 0;
+}
+
+.petal {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 48px;
+    height: 68px;
+
+    transform-origin: 50% 90%;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background: linear-gradient(
+        135deg,
+        #fff36a,
+        #ffd21c 55%,
+        #f4ad00
+    );
+
+    box-shadow:
+        inset 0 -5px 8px rgba(220, 145, 0, 0.2),
+        0 0 10px rgba(255, 220, 40, 0.4);
+}
+
+.p1 {
+    transform: translate(-50%, -90%) rotate(0deg);
+}
+
+.p2 {
+    transform: translate(-50%, -90%) rotate(60deg);
+}
+
+.p3 {
+    transform: translate(-50%, -90%) rotate(120deg);
+}
+
+.p4 {
+    transform: translate(-50%, -90%) rotate(180deg);
+}
+
+.p5 {
+    transform: translate(-50%, -90%) rotate(240deg);
+}
+
+.p6 {
+    transform: translate(-50%, -90%) rotate(300deg);
+}
+
+.center {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 38px;
+    height: 38px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffdb57,
+            #c96d00
+        );
+
+    box-shadow:
+        0 0 8px rgba(255, 190, 0, 0.7);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes growFlower {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scaleY(0)
+            rotate(0deg);
+
+        transform-origin: bottom center;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scaleY(1)
+            rotate(0deg);
+
+        transform-origin: bottom center;
+    }
+}
+
+@keyframes bloom {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scale(0);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(-1deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+/* =========================
+   LUCIÉRNAGAS
+========
+```
